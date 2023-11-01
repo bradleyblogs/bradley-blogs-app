@@ -16,12 +16,12 @@ function App() {
   return (
     <main>
       <div>
-        <h1>Blogs</h1>
+        <h1 className="text-5xl font-bold text-slate-200">Bradley Blogs</h1>
         {blogs &&
           blogs.map((blog) => (
             <div key={blog._id}>
-              <h3>{blog.title}</h3>
-              <h6>{blog.author._ref}</h6>
+              <h3 className="text-slate-500">{blog.title}</h3>
+              <h6 className="text-slate-600">{blog.author._ref}</h6>
             </div>
           ))}
       </div>
