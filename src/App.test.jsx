@@ -1,6 +1,6 @@
 import { afterEach, vi, describe, it, expect } from "vitest";
 import { screen } from "@testing-library/react";
-import { render } from "src/utils/test-utils";
+import { render } from "src/core/utils/test-utils";
 
 import sanityClient from "./client";
 

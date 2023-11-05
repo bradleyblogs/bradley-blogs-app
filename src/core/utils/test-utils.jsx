@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import PropTypes from "prop-types";
 
-import blogReducer from "../features/blog/blogSlice";
+import blogReducer from "../../pages/blog/blogSlice";
 
 export function render(
   ui,
