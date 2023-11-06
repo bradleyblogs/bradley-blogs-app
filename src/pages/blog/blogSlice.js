@@ -1,4 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import get from "lodash/get";
+import orderBy from "lodash/orderBy";
+import uniq from "lodash/uniq";
 
 const initialState = {
   posts: [],
@@ -10,8 +13,15 @@ const blogSlice = createSlice({
   initialState,
   reducers: {
     setPosts: (state, action) => {
-      state.posts = action.payload;
-      state.topics = action.payload?.map((post) => post.title);
+      const orderedPosts = orderBy(action.payload, "publishedAt", "desc");
+
+      state.posts = orderedPosts;
+      state.topics = uniq(
+        orderedPosts.reduce(
+          (topics, post) => [...topics, ...get(post, "topics", [])],
+          [],
+        ),
+      );
     },
   },
 });

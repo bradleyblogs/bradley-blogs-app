@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     sanityClient
-      .fetch('*[_type == "post"]')
+      .fetch('*[_type == "post" && published == true]')
       .then((res) => dispatch(setPosts(res)))
       .catch(console.error);
   }, [dispatch]);
