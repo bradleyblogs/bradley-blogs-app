@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -13,6 +13,16 @@ import Home from "./pages/home/components/Home";
 import NoMatch from "./pages/noMatch/components/NoMatch";
 
 function App() {
+  const [theme, setTheme] = useState(localStorage.theme);
+
+  if (localStorage.theme !== theme) {
+    theme === "dark"
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
+
+    localStorage.theme = theme;
+  }
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,7 +40,9 @@ function App() {
     <Router>
       <main>
         <div>
-          <h1 className="text-5xl font-bold text-slate-200">Bradley Blogs</h1>
+          <h1 className="text-5xl font-bold text-slate-800 dark:text-slate-200">
+            Bradley Blogs
+          </h1>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />
@@ -38,6 +50,18 @@ function App() {
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </div>
+        <button
+          className="text-slate-800 dark:text-slate-200"
+          onClick={() => setTheme("light")}
+        >
+          Light
+        </button>
+        <button
+          className="text-slate-800 dark:text-slate-200"
+          onClick={() => setTheme("dark")}
+        >
+          Dark
+        </button>
       </main>
     </Router>
   );
