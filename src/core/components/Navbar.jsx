@@ -7,36 +7,28 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
+const links = [
+  { path: "/", value: "Home" },
+  { path: "/blog", value: "Blog" },
+  { path: "/about", value: "About" },
+];
+
 function NavList() {
   return (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
-        as={Link}
-        to="/"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center p-1 font-medium transition-colors hover:text-blue-500"
-      >
-        Home
-      </Typography>
-      <Typography
-        as={Link}
-        to="/blog"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center p-1 font-medium transition-colors hover:text-blue-500"
-      >
-        Blog
-      </Typography>
-      <Typography
-        as={Link}
-        to="/about"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center p-1 font-medium transition-colors hover:text-blue-500"
-      >
-        About
-      </Typography>
+      {links.map(({ path, value }) => (
+        <li key={`${value}-li`}>
+          <Typography
+            as={Link}
+            to={path}
+            variant="small"
+            color="blue-gray"
+            className="flex items-center px-16 py-8 font-medium transition-colors hover:text-red-900"
+          >
+            {value}
+          </Typography>
+        </li>
+      ))}
     </ul>
   );
 }
@@ -57,7 +49,7 @@ export function Navbar() {
 
   return (
     <MTNavbar className="mx-auto w-full px-6 py-3">
-      <div className="text-blue-gray-900 flex items-center justify-between">
+      <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
           href="/"
