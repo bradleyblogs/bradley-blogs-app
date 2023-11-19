@@ -11,6 +11,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.4",
     "@reduxjs/toolkit": "^1.9.7",
     "@sanity/client": "^6.7.0",
     "lodash": "^4.17.21",
