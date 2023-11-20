@@ -23,7 +23,7 @@ function NavList() {
             to={path}
             variant="small"
             color="blue-gray"
-            className="flex items-center px-16 py-8 font-medium transition-colors hover:text-red-900"
+            className="flex items-center px-12 py-6 font-medium transition-colors hover:text-red-900"
           >
             {value}
           </Typography>
@@ -48,19 +48,17 @@ export function Navbar() {
   }, []);
 
   return (
-    <MTNavbar className="mx-auto w-full px-6 py-3">
+    <MTNavbar className="rounded-m max-w-none px-6 py-3">
       <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography
-          as="a"
-          href="/"
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5"
-        >
-          Bradley Blogs
-        </Typography>
+        <img
+          src="src/assets/NameLogoLightTransparent.png"
+          alt="bradley-blogs-logo"
+          className="w-48"
+        />
         <div className="hidden lg:block">
           <NavList />
         </div>
+        <div className="bg-blue-gray-400">Button Bar</div>
         <IconButton
           variant="text"
           className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
