@@ -32,7 +32,6 @@ function App() {
       <Navbar />
       <main>
         <div>
-          <h1 className="text-5xl font-bold text-slate-800">Bradley Blogs</h1>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />
